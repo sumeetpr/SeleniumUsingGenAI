@@ -1,0 +1,19 @@
+<suite name="UIAutomationSuite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="com.company.framework.reporting.ExtentListener"/>
+    </listeners>
+
+    <test name="ChromeTests">
+        <parameter name="browser" value="CHROME"/>
+        <packages>
+            <package name="com.company.tests.regression"/>
+        </packages>
+    </test>
+
+    <test name="FirefoxTests">
+        <parameter name="browser" value="FIREFOX"/>
+        <packages>
+            <package name="com.company.tests.regression"/>
+        </packages>
+    </test>
+</suite>
