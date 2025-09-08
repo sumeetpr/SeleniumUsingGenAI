@@ -38,7 +38,7 @@ public class OpenUrlTest extends BaseTest {
         homePage.clickLink(LinkKeys.DYNAMIC_ID.getKey());
 
         // Validate the page title or URL after clicking the link
-        String expectedTitle = "Dynamic IDq";
+        String expectedTitle = "Dynamic ID";
         String actualTitle = homePage.getPageTitle();
         Assert.assertTrue(actualTitle.contains(expectedTitle),
                 "Expected title to contain '" + expectedTitle + "' but got: " + actualTitle);
