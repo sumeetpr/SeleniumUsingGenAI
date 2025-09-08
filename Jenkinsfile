@@ -65,8 +65,8 @@ pipeline {
 
   post {
     always {
+        archiveArtifacts artifacts: 'reports/**', fingerprint: true
 
-      archiveArtifacts artifacts: 'reports/spark/**', fingerprint: true
 
        publishHTML([
                   reportDir: 'reports',
