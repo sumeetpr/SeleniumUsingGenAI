@@ -14,10 +14,11 @@ public class ExtentManager {
     public synchronized static ExtentReports getInstance() {
 
         String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        String reportPath = "/reports/spark/ExtentReport_" + timestamp + ".html";
+//        String reportPath = "/reports/spark/ExtentReport_" + timestamp + ".html";
+        String reportPath = System.getProperty("user.dir") + "/reports/spark_" + timestamp + "/";
 
         if (extent == null) {
-            spark = new ExtentSparkReporter(reportPath);
+            spark = new ExtentSparkReporter(reportPath+ "index.html");
             spark.config().setReportName("Execution Report");
 
             extent = new ExtentReports();
