@@ -22,6 +22,7 @@ public class ExtentManager {
 
             extent = new ExtentReports();
             spark.config().setOfflineMode(true);
+            spark.config().setTimelineEnabled(true);
             extent.attachReporter(spark);
         }
         return extent;
