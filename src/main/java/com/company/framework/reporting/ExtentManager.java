@@ -21,6 +21,7 @@ public class ExtentManager {
             spark.config().setReportName("Execution Report");
 
             extent = new ExtentReports();
+            spark.config().setOfflineMode(true);
             extent.attachReporter(spark);
         }
         return extent;
