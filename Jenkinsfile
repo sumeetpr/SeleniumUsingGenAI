@@ -68,14 +68,14 @@ pipeline {
         archiveArtifacts artifacts: 'reports/**', fingerprint: true
 
 
-       publishHTML([
-                  reportDir: 'reports',
-                  reportFiles: 'ExtentReport_*.html',
-                  reportName: 'Extent Report',
-                  keepAll: true,
-                  alwaysLinkToLastBuild: true,
-                  allowMissing: false
-              ])
+      publishHTML([
+                      allowMissing: false,
+                      alwaysLinkToLastBuild: true,
+                      keepAll: true,
+                      reportDir: 'reports/spark_*',
+                      reportFiles: 'index.html',
+                      reportName: 'Extent Reports'
+                  ])
     }
   }
 }

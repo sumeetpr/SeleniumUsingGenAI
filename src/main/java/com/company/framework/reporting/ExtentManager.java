@@ -14,7 +14,7 @@ public class ExtentManager {
     public synchronized static ExtentReports getInstance() {
 
         String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        String reportPath = "reports/ExtentReport_" + timestamp + ".html";
+        String reportPath = "/reports/spark/ExtentReport_" + timestamp + ".html";
 
         if (extent == null) {
             spark = new ExtentSparkReporter(reportPath);
@@ -23,6 +23,8 @@ public class ExtentManager {
             extent = new ExtentReports();
             spark.config().setOfflineMode(true);
             spark.config().setTimelineEnabled(true);
+            spark.config().setDocumentTitle("Automation Test Report");
+            spark.config().setReportName("Selenium Regression Suite");
             extent.attachReporter(spark);
         }
         return extent;
