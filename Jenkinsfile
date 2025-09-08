@@ -25,7 +25,11 @@ pipeline {
         sh 'docker ps --filter "name=selenium" --format "{{.Names}}: {{.Status}}" || true'
       }
     }
-
+    stage('Clean Reports') {
+        steps {
+            sh 'rm -rf reports/* || true'
+        }
+    }
     stage('Run Tests') {
       steps {
         sh """
