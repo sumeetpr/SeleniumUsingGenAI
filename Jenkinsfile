@@ -65,7 +65,9 @@ pipeline {
 
   post {
     always {
-      archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
+
+      archiveArtifacts artifacts: 'reports/spark/**', fingerprint: true
+
        publishHTML([
                   reportDir: 'reports',
                   reportFiles: 'ExtentReport_*.html',
