@@ -65,7 +65,7 @@ pipeline {
 
   post {
     always {
-
+        script {
             def latestReport = sh(script: "ls -dt reports/spark_* | head -1", returnStdout: true).trim()
             echo "Latest report folder: ${latestReport}"
 
@@ -79,6 +79,7 @@ pipeline {
                       reportFiles: 'index.html',
                       reportName: 'Extent Reports'
                   ])
+           }
     }
   }
 }
