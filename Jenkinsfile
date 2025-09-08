@@ -65,8 +65,11 @@ pipeline {
 
   post {
     always {
-        archiveArtifacts artifacts: 'reports/**', fingerprint: true
 
+            def latestReport = sh(script: "ls -dt reports/spark_* | head -1", returnStdout: true).trim()
+            echo "Latest report folder: ${latestReport}"
+
+            archiveArtifacts artifacts: "${latestReport}/**", fingerprint: true
 
       publishHTML([
                       allowMissing: false,
